@@ -4,17 +4,20 @@
  */
 package assignment2.simplerpg.Panels;
 
+import assignment2.simplerpg.BattleMap;
+import assignment2.simplerpg.Dialog.RoundFinishDialog;
 import assignment2.simplerpg.Entity.Hero;
 import assignment2.simplerpg.Entity.Monster;
 import assignment2.simplerpg.SimpleRPGStart;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 /**
  *
  * @author yucha
  */
-public class BattleMapPanel2 extends javax.swing.JPanel {
+public class BattleMapPanel2 extends BattleMap {
 
     SimpleRPGStart root;
 
@@ -51,13 +54,28 @@ public class BattleMapPanel2 extends javax.swing.JPanel {
 
         jPanel1.setOpaque(false);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/SwardMan small.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/SwordMan small.png"))); // NOI18N
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Enemy small.png"))); // NOI18N
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                attack(evt);
+            }
+        });
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Enemy small.png"))); // NOI18N
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                attack(evt);
+            }
+        });
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Enemy small.png"))); // NOI18N
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                attack(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -116,8 +134,43 @@ public class BattleMapPanel2 extends javax.swing.JPanel {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Magma.png"))); // NOI18N
         jLabel1.setToolTipText("");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 136, -1, -1));
+
+        getLabels().add(jLabel3);
+        getLabels().add(jLabel4);
+        getLabels().add(jLabel5);
+        fillMonsters();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void attack(java.awt.event.MouseEvent evt) {
+        JLabel l = (JLabel) evt.getSource();
+        Monster m = getMonster(l);
+
+        // Update monster's hp
+        m.setHealth(m.getHealth() - hero.getAttack());
+        if (m.getHealth() <= 0) {
+            hero.setScore(hero.getScore() + 100);
+            l.setVisible(false);
+        }
+
+        // Update hero's hp
+        hero.deductHealth(m.getAttack());
+        jTextField5.setText(String.valueOf(hero.getHealth()));
+
+        if (isEliminated()) {
+            // Case round win: all monsters are eliminated
+            hero.setHealth(hero.getHealth() + 100);
+            hero.setArmor(true);
+            RoundFinishDialog rfd = new RoundFinishDialog(root);
+            rfd.setVisible(true);
+            // Next battle map scene
+            BattleMapPanel3 bmp3 = (BattleMapPanel3) root.getBattleMapPanel3();
+            bmp3.setHero(hero);
+            root.setPanelsVisible(root.getBattleMapPanel3());
+        } else if (hero.getHealth() <= 0) {
+            // Case lose: monster remaining and hero's hp <= 0
+            root.setPanelsVisible(root.getStartPagePanel());
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

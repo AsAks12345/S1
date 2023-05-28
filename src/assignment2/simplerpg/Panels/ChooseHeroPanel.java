@@ -45,7 +45,7 @@ public class ChooseHeroPanel extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1280, 720));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/SwardMan.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/SwordMan.png"))); // NOI18N
         jLabel1.setText("Swordsman");
         jLabel1.setPreferredSize(new java.awt.Dimension(150, 150));
 
@@ -146,7 +146,6 @@ public class ChooseHeroPanel extends javax.swing.JPanel {
         id.setModal(true);
         id.setVisible(true);
         String name = id.getName();
-        System.out.println(name);
         if (!name.isEmpty()) {
             BattleMapPanel1 p = (BattleMapPanel1) root.getBattleMapPanel1();
             p.setHero(new Archer(name));

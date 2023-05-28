@@ -4,6 +4,7 @@
  */
 package assignment2.simplerpg;
 
+import assignment2.simplerpg.Entity.Hero;
 import assignment2.simplerpg.Panels.*;
 
 import javax.swing.*;

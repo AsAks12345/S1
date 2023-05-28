@@ -1,16 +1,17 @@
 package assignment2.simplerpg.Entity;
 
 public abstract class Hero {
-    protected String name;
-    protected String occupation;
-    protected int health;
-    protected int healthMax;
-    protected int attack;
+    private String name;
+    private String occupation;
+    private int health;
+    private int healthMax;
+    private int attack;
+    private boolean armor;
     private int score;
 
-    public boolean attack(Monster monster) {
-        monster.setHealth(monster.getHealth() - attack);
-        return monster.getHealth() <= 0;
+    public void deductHealth(int atk) {
+        atk = atk / (armor ? 2 : 1);
+        health = health - atk;
     }
 
     public String getName() {
@@ -51,6 +52,14 @@ public abstract class Hero {
 
     public void setAttack(int attack) {
         this.attack = attack;
+    }
+
+    public boolean isArmor() {
+        return armor;
+    }
+
+    public void setArmor(boolean armor) {
+        this.armor = armor;
     }
 
     public int getScore() {
