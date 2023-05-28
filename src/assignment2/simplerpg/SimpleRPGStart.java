@@ -4,7 +4,6 @@
  */
 package assignment2.simplerpg;
 
-import assignment2.simplerpg.Entity.Hero;
 import assignment2.simplerpg.Panels.*;
 
 import javax.swing.*;
@@ -52,9 +51,9 @@ public class SimpleRPGStart extends javax.swing.JFrame {
                 jCheckBoxMenuItem1MouseClicked(evt);
             }
         });
-        jCheckBoxMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBoxMenuItem1ActionPerformed(evt);
+        jCheckBoxMenuItem1.addActionListener(evt -> {
+            if (!chooseHeroPanel.isVisible()) {
+                setPanelsVisible(chooseHeroPanel);
             }
         });
         jMenu1.add(jCheckBoxMenuItem1);
@@ -70,6 +69,7 @@ public class SimpleRPGStart extends javax.swing.JFrame {
 
         jMenu3.setText("Score");
         jMenuBar1.add(jMenu3);
+//        jMenu3.addActionListener(evt -> setPanelsVisible(scoreBoardPanel));
 
         setJMenuBar(jMenuBar1);
 
@@ -79,12 +79,14 @@ public class SimpleRPGStart extends javax.swing.JFrame {
         battleMapPanel2 = new BattleMapPanel2(this);
         battleMapPanel3 = new BattleMapPanel3(this);
         battleMapPanel4 = new BattleMapPanel4(this);
+        scoreBoardPanel = new ScoreBoardPanel(this);
         panels.add(startPagePanel);
         panels.add(chooseHeroPanel);
         panels.add(battleMapPanel1);
         panels.add(battleMapPanel2);
         panels.add(battleMapPanel3);
         panels.add(battleMapPanel4);
+        panels.add(scoreBoardPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -97,6 +99,7 @@ public class SimpleRPGStart extends javax.swing.JFrame {
                     .addComponent(battleMapPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(battleMapPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(battleMapPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(scoreBoardPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,6 +110,7 @@ public class SimpleRPGStart extends javax.swing.JFrame {
                     .addComponent(battleMapPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(battleMapPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(battleMapPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(scoreBoardPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         setPanelsVisible(startPagePanel);
@@ -114,12 +118,6 @@ public class SimpleRPGStart extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jCheckBoxMenuItem1MouseClicked(MouseEvent evt) {
-    }
-
-    private void jCheckBoxMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {
-        if (!chooseHeroPanel.isVisible()) {
-            setPanelsVisible(chooseHeroPanel);
-        }
     }
 
     /**
@@ -172,6 +170,7 @@ public class SimpleRPGStart extends javax.swing.JFrame {
     private JPanel battleMapPanel2;
     private JPanel battleMapPanel3;
     private JPanel battleMapPanel4;
+    private JPanel scoreBoardPanel;
 
     private final ArrayList<JPanel> panels = new ArrayList<>();
 
@@ -208,5 +207,9 @@ public class SimpleRPGStart extends javax.swing.JFrame {
 
     public JPanel getBattleMapPanel4() {
         return battleMapPanel4;
+    }
+
+    public JPanel getScoreBoardPanel() {
+        return scoreBoardPanel;
     }
 }

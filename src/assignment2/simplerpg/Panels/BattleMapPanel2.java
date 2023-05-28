@@ -5,6 +5,7 @@
 package assignment2.simplerpg.Panels;
 
 import assignment2.simplerpg.BattleMap;
+import assignment2.simplerpg.Dialog.LoseDialog;
 import assignment2.simplerpg.Dialog.RoundFinishDialog;
 import assignment2.simplerpg.Entity.Hero;
 import assignment2.simplerpg.Entity.Monster;
@@ -168,6 +169,8 @@ public class BattleMapPanel2 extends BattleMap {
             root.setPanelsVisible(root.getBattleMapPanel3());
         } else if (hero.getHealth() <= 0) {
             // Case lose: monster remaining and hero's hp <= 0
+            LoseDialog ld = new LoseDialog(root);
+            ld.setVisible(true);
             root.setPanelsVisible(root.getStartPagePanel());
         }
     }

@@ -5,7 +5,9 @@
 package assignment2.simplerpg.Panels;
 
 import assignment2.simplerpg.BattleMap;
+import assignment2.simplerpg.Dialog.LoseDialog;
 import assignment2.simplerpg.Dialog.RoundFinishDialog;
+import assignment2.simplerpg.Dialog.WinDialog;
 import assignment2.simplerpg.Entity.Hero;
 import assignment2.simplerpg.Entity.Monster;
 import assignment2.simplerpg.SimpleRPGStart;
@@ -192,12 +194,14 @@ public class BattleMapPanel4 extends BattleMap {
             // Case round win: all monsters are eliminated
             hero.setHealth(hero.getHealth() + 100);
             hero.setArmor(true);
-            RoundFinishDialog rfd = new RoundFinishDialog(root);
-            rfd.setVisible(true);
             // Won
-            root.setPanelsVisible(root.getStartPagePanel());
+            WinDialog wd = new WinDialog(root);
+            wd.setVisible(true);
+            root.setPanelsVisible(root.getScoreBoardPanel());
         } else if (hero.getHealth() <= 0) {
             // Case lose: monster remaining and hero's hp <= 0
+            LoseDialog ld = new LoseDialog(root);
+            ld.setVisible(true);
             root.setPanelsVisible(root.getStartPagePanel());
         }
     }

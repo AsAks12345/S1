@@ -5,6 +5,7 @@
 package assignment2.simplerpg.Panels;
 
 import assignment2.simplerpg.BattleMap;
+import assignment2.simplerpg.Dialog.LoseDialog;
 import assignment2.simplerpg.Dialog.RoundFinishDialog;
 import assignment2.simplerpg.Entity.Hero;
 import assignment2.simplerpg.Entity.Monster;
@@ -130,7 +131,7 @@ public class BattleMapPanel3 extends BattleMap {
 
         jTextField1.setEditable(false);
         jTextField1.setFont(new java.awt.Font("Microsoft YaHei UI", 0, 50)); // NOI18N
-        jTextField1.setText("Cave");
+        jTextField1.setText("Ocean");
         add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(447, 28, -1, -1));
 
         jTextField2.setEditable(false);
@@ -185,6 +186,8 @@ public class BattleMapPanel3 extends BattleMap {
             root.setPanelsVisible(root.getBattleMapPanel4());
         } else if (hero.getHealth() <= 0) {
             // Case lose: monster remaining and hero's hp <= 0
+            LoseDialog ld = new LoseDialog(root);
+            ld.setVisible(true);
             root.setPanelsVisible(root.getStartPagePanel());
         }
     }
