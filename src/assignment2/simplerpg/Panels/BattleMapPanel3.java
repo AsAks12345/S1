@@ -2,34 +2,27 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package assignment2.simplerpg;
+package assignment2.simplerpg.Panels;
 
 import assignment2.simplerpg.Entity.Hero;
 import assignment2.simplerpg.Entity.Monster;
+import assignment2.simplerpg.SimpleRPGStart;
 
-import javax.swing.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 /**
  *
  * @author yucha
  */
-public class BattleMapPanel extends javax.swing.JPanel {
+public class BattleMapPanel3 extends javax.swing.JPanel {
 
     SimpleRPGStart root;
 
     /**
      * Creates new form BattleMapPanel
      */
-    public BattleMapPanel(SimpleRPGStart root) {
+    public BattleMapPanel3(SimpleRPGStart root) {
         this.root = root;
-        initComponents();
-    }
-
-    public BattleMapPanel(SimpleRPGStart root, int curMap) {
-        this.root = root;
-        this.curMap = curMap;
         initComponents();
     }
 
@@ -42,6 +35,7 @@ public class BattleMapPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
@@ -49,9 +43,22 @@ public class BattleMapPanel extends javax.swing.JPanel {
         jTextField5 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
+        jPanel1.setOpaque(false);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 804, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 534, Short.MAX_VALUE)
+        );
+
         jTextField1.setEditable(false);
         jTextField1.setFont(new java.awt.Font("Microsoft YaHei UI", 0, 50)); // NOI18N
-        jTextField1.setText(map.get(curMap));
+        jTextField1.setText("Sea");
 
         jTextField2.setEditable(false);
         jTextField2.setText("Scores:");
@@ -63,7 +70,7 @@ public class BattleMapPanel extends javax.swing.JPanel {
 
         jTextField5.setEditable(false);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/" + map.get(curMap) + ".png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Sea.png"))); // NOI18N
         jLabel1.setToolTipText("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -85,6 +92,11 @@ public class BattleMapPanel extends javax.swing.JPanel {
                             .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel1))
                 .addContainerGap(116, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(114, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(118, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -103,27 +115,24 @@ public class BattleMapPanel extends javax.swing.JPanel {
                 .addGap(38, 38, 38)
                 .addComponent(jLabel1)
                 .addContainerGap(44, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(136, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(48, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
-
-    private static final HashMap<Integer, String> map = new HashMap<Integer,String>() {{
-        put(1, "Cave");
-        put(2, "Magma");
-        put(3, "Sea");
-        put(4, "Grass");
-    }};
-
-    private int curMap = 1;
 
     private Hero hero;
     private int numMonster;
@@ -133,17 +142,13 @@ public class BattleMapPanel extends javax.swing.JPanel {
         return hero;
     }
 
+    /**
+     * Set Hero and initialize score and health textfields
+     * @param hero
+     */
     public void setHero(Hero hero) {
         this.hero = hero;
         jTextField4.setText(String.valueOf(hero.getScore()));
         jTextField5.setText(String.valueOf(hero.getHealth()));
-        initMap();
-    }
-
-    public void initMap() {
-        numMonster = curMap + 1;
-        for (int i = 0; i < numMonster; i++) {
-            monsters.add(new Monster());
-        }
     }
 }

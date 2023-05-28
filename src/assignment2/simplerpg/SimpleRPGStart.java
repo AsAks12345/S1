@@ -4,6 +4,8 @@
  */
 package assignment2.simplerpg;
 
+import assignment2.simplerpg.Panels.*;
+
 import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -72,10 +74,16 @@ public class SimpleRPGStart extends javax.swing.JFrame {
 
         startPagePanel = new StartPagePanel(this);
         chooseHeroPanel = new ChooseHeroPanel(this);
-        BattleMapPanel = new BattleMapPanel(this);
+        battleMapPanel1 = new BattleMapPanel1(this);
+        battleMapPanel2 = new BattleMapPanel2(this);
+        battleMapPanel3 = new BattleMapPanel3(this);
+        battleMapPanel4 = new BattleMapPanel4(this);
         panels.add(startPagePanel);
         panels.add(chooseHeroPanel);
-        panels.add(BattleMapPanel);
+        panels.add(battleMapPanel1);
+        panels.add(battleMapPanel2);
+        panels.add(battleMapPanel3);
+        panels.add(battleMapPanel4);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -84,14 +92,20 @@ public class SimpleRPGStart extends javax.swing.JFrame {
             .addGap(0, 1136, Short.MAX_VALUE)
                     .addComponent(startPagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(chooseHeroPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BattleMapPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(battleMapPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(battleMapPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(battleMapPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(battleMapPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 691, Short.MAX_VALUE)
                     .addComponent(startPagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(chooseHeroPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BattleMapPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(battleMapPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(battleMapPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(battleMapPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(battleMapPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         setPanelsVisible(startPagePanel);
@@ -153,7 +167,10 @@ public class SimpleRPGStart extends javax.swing.JFrame {
 
     private JPanel startPagePanel;
     private JPanel chooseHeroPanel;
-    private JPanel BattleMapPanel;
+    private JPanel battleMapPanel1;
+    private JPanel battleMapPanel2;
+    private JPanel battleMapPanel3;
+    private JPanel battleMapPanel4;
 
     private final ArrayList<JPanel> panels = new ArrayList<>();
 
@@ -176,7 +193,19 @@ public class SimpleRPGStart extends javax.swing.JFrame {
         return chooseHeroPanel;
     }
 
-    public JPanel getBattleMapPanel() {
-        return BattleMapPanel;
+    public JPanel getBattleMapPanel1() {
+        return battleMapPanel1;
+    }
+
+    public JPanel getBattleMapPanel2() {
+        return battleMapPanel2;
+    }
+
+    public JPanel getBattleMapPanel3() {
+        return battleMapPanel3;
+    }
+
+    public JPanel getBattleMapPanel4() {
+        return battleMapPanel4;
     }
 }

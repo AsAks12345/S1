@@ -16,11 +16,10 @@ public class InitDialog extends JDialog {
         super(frame, "Please enter your name", true);
 
         Container c = getContentPane();
-        JLabel label = new JLabel("Please enter your name");
-        c.add(label, BorderLayout.NORTH);
 
         JTextField nameField = new JTextField();
         c.add(nameField, BorderLayout.CENTER);
+        nameField.setPreferredSize(new Dimension(300, 80));
 
         JButton confirmButton = new JButton("Confirm");
         // Close value when click
@@ -31,6 +30,7 @@ public class InitDialog extends JDialog {
             dialog.dispose();
         });
         c.add(confirmButton, BorderLayout.SOUTH);
+        confirmButton.setPreferredSize(new Dimension(300, 60));
 
         setBounds(400, 300, 350, 200);
     }

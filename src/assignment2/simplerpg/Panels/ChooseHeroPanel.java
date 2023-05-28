@@ -2,12 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package assignment2.simplerpg;
+package assignment2.simplerpg.Panels;
 
 import assignment2.simplerpg.Dialog.InitDialog;
 import assignment2.simplerpg.Entity.Archer;
 import assignment2.simplerpg.Entity.SwordMan;
 import assignment2.simplerpg.Entity.Wizard;
+import assignment2.simplerpg.SimpleRPGStart;
 
 /**
  *
@@ -134,9 +135,9 @@ public class ChooseHeroPanel extends javax.swing.JPanel {
         id.setVisible(true);
         String name = id.getName();
         if (!name.isEmpty()) {
-            BattleMapPanel p = (BattleMapPanel) root.getBattleMapPanel();
+            BattleMapPanel1 p = (BattleMapPanel1) root.getBattleMapPanel1();
             p.setHero(new SwordMan(name));
-            root.setPanelsVisible(root.getBattleMapPanel());
+            root.setPanelsVisible(root.getBattleMapPanel1());
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -147,9 +148,9 @@ public class ChooseHeroPanel extends javax.swing.JPanel {
         String name = id.getName();
         System.out.println(name);
         if (!name.isEmpty()) {
-            BattleMapPanel p = (BattleMapPanel) root.getBattleMapPanel();
+            BattleMapPanel1 p = (BattleMapPanel1) root.getBattleMapPanel1();
             p.setHero(new Archer(name));
-            root.setPanelsVisible(root.getBattleMapPanel());
+            root.setPanelsVisible(root.getBattleMapPanel1());
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -159,9 +160,9 @@ public class ChooseHeroPanel extends javax.swing.JPanel {
         id.setVisible(true);
         String name = id.getName();
         if (!name.isEmpty()) {
-            BattleMapPanel p = (BattleMapPanel) root.getBattleMapPanel();
+            BattleMapPanel1 p = (BattleMapPanel1) root.getBattleMapPanel1();
             p.setHero(new Wizard(name));
-            root.setPanelsVisible(root.getBattleMapPanel());
+            root.setPanelsVisible(root.getBattleMapPanel1());
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
