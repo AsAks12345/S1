@@ -8,12 +8,12 @@ package assignment2.simplerpg;
  *
  * @author yucha
  */
-public class SimpleRPG extends javax.swing.JFrame {
+public class SimpleRPGstart extends javax.swing.JFrame {
 
     /**
      * Creates new form SimpleRPG
      */
-    public SimpleRPG() {
+    public SimpleRPGstart() {
         initComponents();
     }
 
@@ -107,20 +107,21 @@ public class SimpleRPG extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SimpleRPG.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SimpleRPGstart.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SimpleRPG.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SimpleRPGstart.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SimpleRPG.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SimpleRPGstart.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SimpleRPG.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SimpleRPGstart.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SimpleRPG().setVisible(true);
+                new SimpleRPGstart().setVisible(true);
             }
         });
     }
