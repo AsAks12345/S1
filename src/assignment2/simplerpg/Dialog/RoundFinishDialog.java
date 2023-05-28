@@ -10,7 +10,7 @@ public class RoundFinishDialog extends JDialog {
          * @para 2 Dialog title
          * @para 3 Block parent window
          */
-        super(frame, "Please enter your name", true);
+        super(frame, "Round Finished", true);
 
         Container c = getContentPane();
         JLabel label = new JLabel("You earned armour and health + 100");
@@ -25,6 +25,6 @@ public class RoundFinishDialog extends JDialog {
         });
         c.add(confirmButton, BorderLayout.SOUTH);
 
-        setBounds(400, 300, 200, 160);
+        setBounds(400, 300, 300, 160);
     }
 }

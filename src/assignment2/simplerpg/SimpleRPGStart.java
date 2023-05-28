@@ -46,11 +46,6 @@ public class SimpleRPGStart extends javax.swing.JFrame {
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("New Game");
-        jCheckBoxMenuItem1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jCheckBoxMenuItem1MouseClicked(evt);
-            }
-        });
         jCheckBoxMenuItem1.addActionListener(evt -> {
             if (!chooseHeroPanel.isVisible()) {
                 setPanelsVisible(chooseHeroPanel);
@@ -68,8 +63,12 @@ public class SimpleRPGStart extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Score");
+        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                setPanelsVisible(scoreBoardPanel);
+            }
+        });
         jMenuBar1.add(jMenu3);
-//        jMenu3.addActionListener(evt -> setPanelsVisible(scoreBoardPanel));
 
         setJMenuBar(jMenuBar1);
 
@@ -183,6 +182,10 @@ public class SimpleRPGStart extends javax.swing.JFrame {
         for (JPanel p : panels) {
             p.setVisible(p.equals(panel));
         }
+    }
+
+    public void restartGame() {
+        initComponents();
     }
 
     public JPanel getStartPagePanel() {

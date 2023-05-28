@@ -157,7 +157,7 @@ public class BattleMapPanel1 extends BattleMap {
             // Case lose: monster remaining and hero's hp <= 0
             LoseDialog ld = new LoseDialog(root);
             ld.setVisible(true);
-            root.setPanelsVisible(root.getStartPagePanel());
+            root.restartGame();
         }
     }
 

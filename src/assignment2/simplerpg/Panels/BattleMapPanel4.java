@@ -202,7 +202,7 @@ public class BattleMapPanel4 extends BattleMap {
             // Case lose: monster remaining and hero's hp <= 0
             LoseDialog ld = new LoseDialog(root);
             ld.setVisible(true);
-            root.setPanelsVisible(root.getStartPagePanel());
+            root.restartGame();
         }
     }
 
@@ -223,8 +223,6 @@ public class BattleMapPanel4 extends BattleMap {
     // End of variables declaration//GEN-END:variables
 
     private Hero hero;
-    private int numMonster;
-    private ArrayList<Monster> monsters = new ArrayList<>();
 
     public Hero getHero() {
         return hero;
