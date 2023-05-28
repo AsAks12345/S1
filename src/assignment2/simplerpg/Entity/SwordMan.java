@@ -6,6 +6,6 @@ public class SwordMan extends Hero{
         setHealth(100);
         setHealthMax(100);
         setName(name);
-        setOccupation("swordman");
+        setOccupation("SwordMan");
     }
 }

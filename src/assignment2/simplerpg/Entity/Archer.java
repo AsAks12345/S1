@@ -6,6 +6,6 @@ public class Archer extends Hero{
         setHealth(80);
         setHealthMax(80);
         setName(name);
-        setOccupation("archer");
+        setOccupation("Archer");
     }
 }

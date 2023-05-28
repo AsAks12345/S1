@@ -6,6 +6,6 @@ public class Wizard extends Hero {
         setHealth(70);
         setHealthMax(70);
         setName(name);
-        setOccupation("wizard");
+        setOccupation("Wizard");
     }
 }
