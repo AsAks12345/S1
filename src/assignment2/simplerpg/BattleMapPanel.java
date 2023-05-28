@@ -4,7 +4,7 @@
  */
 package assignment2.simplerpg;
 
-import javax.swing.*;
+import java.util.HashMap;
 
 /**
  *
@@ -38,14 +38,21 @@ public class BattleMapPanel extends javax.swing.JPanel {
         jTextField5 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
+        jTextField1.setEditable(false);
         jTextField1.setFont(new java.awt.Font("Microsoft YaHei UI", 0, 50)); // NOI18N
-        jTextField1.setText("Cave");
+        jTextField1.setText(map.get(curMap));
 
+        jTextField2.setEditable(false);
         jTextField2.setText("Scores:");
 
+        jTextField3.setEditable(false);
         jTextField3.setText("Health:");
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/cave.png"))); // NOI18N
+        jTextField4.setEditable(false);
+
+        jTextField5.setEditable(false);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/" + map.get(curMap) + ".png"))); // NOI18N
         jLabel1.setToolTipText("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -97,4 +104,13 @@ public class BattleMapPanel extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
+
+    private static final HashMap<Integer, String> map = new HashMap<Integer,String>() {{
+        put(1, "Cave");
+        put(2, "Magma");
+        put(3, "Sea");
+        put(4, "Grass");
+    }};
+
+    private int curMap = 1;
 }

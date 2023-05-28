@@ -4,8 +4,6 @@
  */
 package assignment2.simplerpg;
 
-import javax.swing.*;
-
 /**
  *
  * @author yucha
@@ -41,7 +39,7 @@ public class ChooseHeroPanel extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(1280, 720));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Wizard (2).png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/SwardMan.png"))); // NOI18N
         jLabel1.setText("Swordsman");
         jLabel1.setPreferredSize(new java.awt.Dimension(150, 150));
 
@@ -53,7 +51,7 @@ public class ChooseHeroPanel extends javax.swing.JPanel {
         jLabel3.setText("Archer");
         jLabel3.setPreferredSize(new java.awt.Dimension(150, 150));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/wizard.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Wizard.png"))); // NOI18N
         jLabel4.setText("Wizard");
         jLabel4.setPreferredSize(new java.awt.Dimension(150, 150));
 
