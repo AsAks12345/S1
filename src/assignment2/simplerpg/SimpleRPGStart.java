@@ -4,16 +4,20 @@
  */
 package assignment2.simplerpg;
 
+import javax.swing.*;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+
 /**
  *
  * @author yucha
  */
-public class SimpleRPGstart extends javax.swing.JFrame {
+public class SimpleRPGStart extends javax.swing.JFrame {
 
     /**
-     * Creates new form SimpleRPG
+     * Creates new form Main
      */
-    public SimpleRPGstart() {
+    public SimpleRPGStart() {
         initComponents();
     }
 
@@ -26,9 +30,6 @@ public class SimpleRPGstart extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
@@ -36,20 +37,23 @@ public class SimpleRPGstart extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
 
-        jMenuItem1.setText("jMenuItem1");
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
-        jLabel1.setText("Simple RPG Game");
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setText("Name Student Id");
+        setSize(new java.awt.Dimension(1280, 720));
 
         jMenu1.setText("Saved Game");
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("New Game");
+        jCheckBoxMenuItem1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jCheckBoxMenuItem1MouseClicked(evt);
+            }
+        });
+        jCheckBoxMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jCheckBoxMenuItem1);
 
         jCheckBoxMenuItem2.setSelected(true);
@@ -66,29 +70,42 @@ public class SimpleRPGstart extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
+        startPagePanel = new StartPagePanel(this);
+        chooseHeroPanel = new ChooseHeroPanel(this);
+        BattleMapPanel = new BattleMapPanel(this);
+        panels.add(startPagePanel);
+        panels.add(chooseHeroPanel);
+        panels.add(BattleMapPanel);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(256, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1))
-                .addGap(225, 225, 225))
+            .addGap(0, 1136, Short.MAX_VALUE)
+                    .addComponent(startPagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(chooseHeroPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BattleMapPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(215, 215, 215)
-                .addComponent(jLabel1)
-                .addGap(30, 30, 30)
-                .addComponent(jLabel2)
-                .addContainerGap(237, Short.MAX_VALUE))
+            .addGap(0, 691, Short.MAX_VALUE)
+                    .addComponent(startPagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(chooseHeroPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BattleMapPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        setPanelsVisible(startPagePanel);
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jCheckBoxMenuItem1MouseClicked(MouseEvent evt) {
+    }
+
+    private void jCheckBoxMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {
+        if (!chooseHeroPanel.isVisible()) {
+            setPanelsVisible(chooseHeroPanel);
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -107,21 +124,20 @@ public class SimpleRPGstart extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SimpleRPGstart.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SimpleRPGStart.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SimpleRPGstart.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SimpleRPGStart.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SimpleRPGstart.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SimpleRPGStart.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SimpleRPGstart.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SimpleRPGStart.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SimpleRPGstart().setVisible(true);
+                new SimpleRPGStart().setVisible(true);
             }
         });
     }
@@ -129,12 +145,38 @@ public class SimpleRPGstart extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     // End of variables declaration//GEN-END:variables
+
+    private JPanel startPagePanel;
+    private JPanel chooseHeroPanel;
+    private JPanel BattleMapPanel;
+
+    private final ArrayList<JPanel> panels = new ArrayList<>();
+
+    /**
+     * 只对对应的JPanel设置可见
+     * Make the target JPanel object visible
+     * @param panel the target JPanel (for the next scene)
+     */
+    public void setPanelsVisible(JPanel panel) {
+        for (JPanel p : panels) {
+            p.setVisible(p.equals(panel));
+        }
+    }
+
+    public JPanel getStartPagePanel() {
+        return startPagePanel;
+    }
+
+    public JPanel getChooseHeroPanel() {
+        return chooseHeroPanel;
+    }
+
+    public JPanel getBattleMapPanel() {
+        return BattleMapPanel;
+    }
 }
