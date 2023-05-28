@@ -6,6 +6,7 @@ public abstract class Hero {
     protected int health;
     protected int healthMax;
     protected int attack;
+    private int score;
 
     public boolean attack(Monster monster) {
         monster.setHealth(monster.getHealth() - attack);
@@ -50,5 +51,13 @@ public abstract class Hero {
 
     public void setAttack(int attack) {
         this.attack = attack;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 }

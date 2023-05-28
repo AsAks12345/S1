@@ -4,6 +4,11 @@
  */
 package assignment2.simplerpg;
 
+import assignment2.simplerpg.Entity.Hero;
+import assignment2.simplerpg.Entity.Monster;
+
+import javax.swing.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -19,6 +24,12 @@ public class BattleMapPanel extends javax.swing.JPanel {
      */
     public BattleMapPanel(SimpleRPGStart root) {
         this.root = root;
+        initComponents();
+    }
+
+    public BattleMapPanel(SimpleRPGStart root, int curMap) {
+        this.root = root;
+        this.curMap = curMap;
         initComponents();
     }
 
@@ -113,4 +124,26 @@ public class BattleMapPanel extends javax.swing.JPanel {
     }};
 
     private int curMap = 1;
+
+    private Hero hero;
+    private int numMonster;
+    private ArrayList<Monster> monsters = new ArrayList<>();
+
+    public Hero getHero() {
+        return hero;
+    }
+
+    public void setHero(Hero hero) {
+        this.hero = hero;
+        jTextField4.setText(String.valueOf(hero.getScore()));
+        jTextField5.setText(String.valueOf(hero.getHealth()));
+        initMap();
+    }
+
+    public void initMap() {
+        numMonster = curMap + 1;
+        for (int i = 0; i < numMonster; i++) {
+            monsters.add(new Monster());
+        }
+    }
 }

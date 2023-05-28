@@ -1,8 +1,8 @@
 package assignment2.simplerpg.Entity;
 
 public class Monster {
-    private int health;
-    private int attack;
+    private int health = 30;
+    private int attack = 20;
     private int moveSpeed;
 
     public int getHealth() {

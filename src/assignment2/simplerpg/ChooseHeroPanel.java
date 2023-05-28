@@ -4,6 +4,11 @@
  */
 package assignment2.simplerpg;
 
+import assignment2.simplerpg.Dialog.InitDialog;
+import assignment2.simplerpg.Entity.Archer;
+import assignment2.simplerpg.Entity.SwordMan;
+import assignment2.simplerpg.Entity.Wizard;
+
 /**
  *
  * @author yucha
@@ -123,15 +128,41 @@ public class ChooseHeroPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        root.setPanelsVisible(root.getBattleMapPanel());
+        InitDialog id = new InitDialog(root);
+        // Set to model, and its return value can only be achieved after dialog closed via getter
+        id.setModal(true);
+        id.setVisible(true);
+        String name = id.getName();
+        if (!name.isEmpty()) {
+            BattleMapPanel p = (BattleMapPanel) root.getBattleMapPanel();
+            p.setHero(new SwordMan(name));
+            root.setPanelsVisible(root.getBattleMapPanel());
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        root.setPanelsVisible(root.getBattleMapPanel());
+        InitDialog id = new InitDialog(root);
+        id.setModal(true);
+        id.setVisible(true);
+        String name = id.getName();
+        System.out.println(name);
+        if (!name.isEmpty()) {
+            BattleMapPanel p = (BattleMapPanel) root.getBattleMapPanel();
+            p.setHero(new Archer(name));
+            root.setPanelsVisible(root.getBattleMapPanel());
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        root.setPanelsVisible(root.getBattleMapPanel());
+        InitDialog id = new InitDialog(root);
+        id.setModal(true);
+        id.setVisible(true);
+        String name = id.getName();
+        if (!name.isEmpty()) {
+            BattleMapPanel p = (BattleMapPanel) root.getBattleMapPanel();
+            p.setHero(new Wizard(name));
+            root.setPanelsVisible(root.getBattleMapPanel());
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
 
